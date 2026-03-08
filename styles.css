@@ -1,0 +1,810 @@
+/* Base Styles & Resets */
+:root {
+    --bg-sidebar: #d8c7bf;
+    --text-main: #111111;
+    --text-muted: #555555;
+    --accent-color: #3b82f6;
+    /* Blue for active link */
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: var(--font-sans);
+    color: var(--text-main);
+    background-color: var(--bg-sidebar);
+}
+
+/* Layout */
+.layout-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 300px;
+    background-color: var(--bg-sidebar);
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.sidebar-header h1 {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.sidebar-header .subtitle {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--text-muted);
+}
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+}
+
+.main-nav {
+    margin-top: -60px;
+    /* Adjust vertical centering */
+}
+
+.main-nav ul {
+    list-style: none;
+}
+
+.main-nav li {
+    margin-bottom: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--accent-color);
+}
+
+.sidebar-footer {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    color: var(--text-main);
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+.copyright a {
+    color: var(--text-main);
+    text-decoration: underline;
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    min-width: 0;
+    /* Prevents flex children from blowing past the viewport and overlapping issues */
+    background-color: var(--bg-sidebar);
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.content-section {
+    display: none;
+    width: 100%;
+    height: 100vh;
+}
+
+.content-section.active {
+    display: flex;
+    animation: smoothFadeIn 0.8s ease-out;
+}
+
+.hero-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.hero-mobile {
+    display: none;
+}
+
+.hero-desktop {
+    display: flex;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    background-color: var(--bg-sidebar);
+}
+
+/* Mobile Header - Hidden on Desktop */
+.mobile-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: var(--bg-sidebar);
+    z-index: 90;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.mobile-socials {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.mobile-socials a {
+    color: var(--text-main);
+    font-size: 20px;
+}
+
+.mobile-logo {
+    text-align: center;
+}
+
+.mobile-logo h1 {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.mobile-logo p {
+    font-family: var(--font-serif);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--text-main);
+    margin-top: 4px;
+}
+
+.mobile-menu-btn {
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+/* General Layout for Content Sections (Bio & Contact) */
+.split-section {
+    background-color: var(--bg-sidebar);
+}
+
+.split-info-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 4rem;
+    /* Adjusted padding for better text alignment */
+    color: var(--text-main);
+    overflow-y: auto;
+    /* Allow scrolling within the text half if content is long */
+}
+
+.split-image-container {
+    flex: 1;
+    height: 100vh;
+}
+
+.split-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+/* Bio Section Specifics */
+.bio-section {
+    background-color: var(--bg-sidebar);
+}
+
+.bio-info-container {
+    flex: 1;
+    padding: 4rem;
+    color: var(--text-main);
+    overflow-y: auto;
+    height: 100vh;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.bio-info-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Language Toggle */
+.language-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    gap: 15px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.lang-option {
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.lang-option.active {
+    color: var(--text-main);
+}
+
+.toggle-switch {
+    width: 50px;
+    height: 26px;
+    background-color: #333;
+    /* Darker than sidebar for contrast */
+    border-radius: 13px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* By default, slider is on the left (ES). When "en" active, move right */
+.toggle-switch.en-active .toggle-slider {
+    transform: translateX(24px);
+}
+
+/* Bio Content wrapper */
+.bio-content-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.bio-content {
+    display: none;
+    /* Hidden by default */
+    animation: smoothFadeIn 0.5s ease-out forwards;
+}
+
+.bio-content.active {
+    display: block;
+    /* Show active language */
+}
+
+.bio-block {
+    margin-bottom: 25px;
+}
+
+.bio-block h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bio-block p,
+.bio-list li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-main);
+    /* Updated to main text color (white) */
+}
+
+.bio-list {
+    list-style-type: none;
+    /* Removes the bullet points */
+    padding-left: 0;
+    margin: 0;
+}
+
+.bio-list li {
+    margin-bottom: 5px;
+}
+
+.bio-list strong {
+    color: var(--text-main);
+    /* Ensures bolded titles are also white */
+}
+
+/* Keep previous technical data tight */
+.bio-block:last-child p {
+    margin-bottom: 3px;
+}
+
+/* Curious Bio Block Styling */
+.curious-block {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 20px 25px;
+    border-radius: 12px;
+    border-left: 4px solid var(--text-main);
+    /* Changed from blue accent to black */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.curious-block:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.curious-block h3 {
+    font-size: 15px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.bio-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.bio-list li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-main);
+    /* Changed to white/main color */
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.bio-list li:last-child {
+    margin-bottom: 0;
+}
+
+.bio-list li strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.bio-image-container {
+    flex: 1;
+    height: 100vh;
+}
+
+.bio-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+/* Reel Section */
+.reel-section {
+    background-color: var(--bg-sidebar);
+    display: none;
+    /* Handled by JS */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.reel-section.active {
+    display: flex;
+    animation: smoothFadeIn 0.8s ease-out;
+}
+
+.reel-info-container {
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.reel-video-container {
+    width: 100%;
+    max-width: 1000px;
+    /* Limit maximum width for very wide screens */
+    background-color: #000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    /* Add slight shadow for depth */
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Gallery Section */
+.gallery-section {
+    background-color: var(--bg-sidebar);
+    padding: 3rem;
+    overflow-y: auto;
+    /* allow scrolling within gallery */
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    /* Strong uniform gap on all sides for the "frame" look */
+    width: 100%;
+}
+
+.gallery-item {
+    width: 100%;
+    /* 3:4 Aspect Ratio (4/3 = 133.33%) ensures height is strictly derived from width regardless of image */
+    padding-bottom: 133.33%;
+    height: 0;
+    position: relative;
+    overflow: hidden;
+    /* Starting state for animation */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.gallery-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    /* Fills the rectangle perfectly without stretching */
+    object-position: top;
+    /* Prevents faces from being cropped too much if it's tall */
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.02);
+}
+
+.lightbox-trigger {
+    cursor: pointer;
+}
+
+/* Lightbox Modal */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 1001;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.lightbox-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+/* Contact Section */
+.contact-section {
+    /* We inherit display: flex from .content-section.active */
+    background-color: var(--bg-sidebar);
+}
+
+.contact-info-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: var(--text-main);
+}
+
+.contact-info-container h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 14px;
+}
+
+.contact-details p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-link {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-link:hover {
+    opacity: 0.7;
+    /* Subtly fades on hover */
+}
+
+.contact-details i {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-image-container {
+    flex: 1;
+    height: 100vh;
+}
+
+.contact-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+/* Animations */
+@keyframes smoothFadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 900px) {
+    .layout-container {
+        flex-direction: column;
+    }
+
+    .mobile-header {
+        display: flex;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -300px;
+        top: 0;
+        height: 100vh;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 200;
+        /* Ensure sidebar covers header when open */
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .main-content {
+        margin-top: 90px;
+        /* Offset for mobile header */
+        height: calc(100vh - 90px);
+        width: 100%;
+    }
+
+    :root {
+        --bg-sidebar: #c4c1bc;
+        /* Matches the mobile photo backdrop */
+    }
+
+    .hero-image-container {
+        height: calc(100vh - 90px);
+    }
+
+    .hero-desktop {
+        display: none !important;
+    }
+
+    .hero-mobile {
+        display: block;
+    }
+
+    .hero-mobile .hero-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .contact-section,
+    .bio-section {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .contact-info-container,
+    .bio-info-container {
+        padding: 4rem 2rem;
+    }
+
+    .contact-image-container,
+    .bio-image-container {
+        height: 60vh;
+        order: -1;
+    }
+
+    .reel-section {
+        padding: 4rem 1rem;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+        /* Single column on mobile */
+    }
+}

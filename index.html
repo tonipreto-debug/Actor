@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonio Nicolás Preto Ford - Actor</title>
+    <link rel="stylesheet" href="styles.css?v=36">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="layout-container">
+        <!-- Mobile Header (Visible only on small screens) -->
+        <header class="mobile-header">
+            <div class="mobile-socials">
+                <a href="https://instagram.com/toni.pretoo" target="_blank" rel="noopener noreferrer"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://youtu.be/4ouMjITPi30?si=sGYQ7_1hqvlcqaz0" target="_blank" rel="noopener noreferrer"
+                    aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="mobile-logo">
+                <a href="#inicio" class="logo-link">
+                    <h1>ANTONIO NICOLÁS<br>PRETO FORD</h1>
+                    <p>Actor</p>
+                </a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </header>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="#inicio" class="logo-link">
+                    <h1>ANTONIO<br>NICOLÁS<br>PRETO FORD</h1>
+                    <p class="subtitle">Actor</p>
+                </a>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#inicio" class="active">INICIO</a></li>
+                    <li><a href="#reel">REEL</a></li>
+                    <li><a href="#cv">CV</a></li>
+                    <li><a href="#galeria">GALERÍA</a></li>
+                    <li><a href="#contacto">CONTACTO</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="social-links">
+                    <a href="https://wa.me/34601713202" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/toni.pretoo" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtu.be/4ouMjITPi30?si=sGYQ7_1hqvlcqaz0" target="_blank" rel="noopener noreferrer"
+                        aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="copyright">
+                    <p>© 2026 Antonio Nicolás Preto Ford - Actor - <a href="#">web</a></p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <section id="inicio" class="content-section active">
+                <div class="hero-image-container hero-desktop">
+                    <img src="images/portada_desktop.jpg" alt="Antonio Nicolás Preto Ford Cover" class="hero-image">
+                </div>
+                <div class="hero-image-container hero-mobile">
+                    <img src="images/portada_mobile.jpg" alt="Antonio Nicolás Preto Ford Mobile" class="hero-image">
+                </div>
+            </section>
+
+            <!-- REEL Section -->
+            <section id="reel" class="content-section reel-section">
+                <div class="reel-info-container">
+                    <div class="bio-block">
+                        <h3>VIDEBOOK</h3>
+                        <p>Antonio Nicolás Preto Ford</p>
+                    </div>
+                </div>
+
+                <div class="reel-video-container">
+                    <div class="video-wrapper">
+                        <!-- YouTube Embed -->
+                        <iframe width="100%" height="100%"
+                            src="https://www.youtube.com/embed/4ouMjITPi30?si=sGYQ7_1hqvlcqaz0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CV Section (formerly BIO) -->
+            <section id="cv" class="content-section bio-section">
+                <div class="bio-info-container">
+                    <!-- Language Toggle -->
+                    <div class="language-toggle">
+                        <span class="lang-option active" data-lang="es">ES</span>
+                        <div class="toggle-switch" id="bio-lang-toggle">
+                            <div class="toggle-slider"></div>
+                        </div>
+                        <span class="lang-option" data-lang="en">EN</span>
+                    </div>
+
+                    <div class="bio-content-wrapper">
+                        <!-- Spanish Bio -->
+                        <div class="bio-content active" id="bio-es">
+                            <div class="bio-block curious-block">
+                                <h3>IDIOMAS & ACENTOS</h3>
+                                <ul class="bio-list">
+                                    <li><strong>Idiomas:</strong> Inglés Británico (Nativo) | Castellano (Nativo) |
+                                        Catalán (Nativo)</li>
+                                    <li><strong>Acentos:</strong> Capacidad para acento Estadounidense (General
+                                        American)</li>
+                                </ul>
+                            </div>
+
+                            <div class="bio-block curious-block">
+                                <h3>PERFIL FÍSICO</h3>
+                                <ul class="bio-list">
+                                    <li><strong>Rango de Edad:</strong> 18 - 25 años</li>
+                                    <li><strong>Apariencia:</strong> 185 cm | Ojos Azul/Verdoso | Pelo Rubio Oscuro
+                                        Ondulado | Complexión Atlética</li>
+                                </ul>
+                            </div>
+
+                            <div class="bio-block curious-block">
+                                <h3>FORMACIÓN Y EXPERIENCIA</h3>
+                                <ul class="bio-list">
+                                    <li><strong>Grado:</strong> Interpretación (en curso) – ESADIB (Escola Superior
+                                        d'Art Dramàtic de les Illes Balears)</li>
+                                    <li><strong>Cine:</strong> Actor Protagonista (Main Role) en cortometraje "HOGAR
+                                        SALADO"</li>
+                                </ul>
+                            </div>
+
+                            <div class="bio-block curious-block">
+                                <h3>HABILIDADES ESPECIALES</h3>
+                                <ul class="bio-list">
+                                    <li><strong>Deportes de Élite:</strong> Jugador Profesional de Voleibol (CV Pòrtol)
+                                    </li>
+                                    <li><strong>Acción/Combate:</strong> Acrobacias diversas, MMA y Grappling (Nociones)
+                                    </li>
+                                    <li><strong>Otras:</strong> Surf, Escalada, DJ</li>
+                                </ul>
+                            </div>
+
+                            <div class="bio-block curious-block">
+                                <h3>DATOS TÉCNICOS & UBICACIÓN</h3>
+                                <ul class="bio-list">
+                                    <li><strong>Tallas:</strong> Chaqueta L | Camisa L | Pantalón EU 42 | Calzado 46.5
+                                    </li>
+                                    <li><strong>Ubicación:</strong> Residencia en Palma de Mallorca y Barcelona
+                                        (Disponibilidad para viajar)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- English Bio -->
+                        <div class="bio-content" id="bio-en">
+                            <div class="bio-block curious-block">
+                                <h3>LANGUAGES & ACCENTS</h3>
+                                <ul class="bio-list">
+                                    <li><strong>Languages:</strong> Native British English | Native Spanish | Native
+                                        Catalan</li>
+                                    <li><strong>Accents:</strong> Proficient in General American Accent</li>
+                                </ul>
+                            </div>
+
+                            <div class="bio-block curious-block">
+                                <h3>PHYSICAL APPEARANCE</h3>
+                                <ul class="bio-list">
+                                    <li><strong>Age Range:</strong> 18 - 25 years</li>
+                                    <li><strong>Appearance:</strong> 185 cm (6'1") | Blue/Green Eyes | Dark Blonde Wavy
+                                        Hair | Athletic Build</li>
+                                </ul>
+                            </div>
+
+                            <div class="bio-block curious-block">
+                                <h3>TRAINING & EXPERIENCE</h3>
+                                <ul class="bio-list">
+                                    <li><strong>BA:</strong> Dramatic Arts (in progress) – ESADIB (Higher School of
+                                        Dramatic Arts of the Balearic Islands)</li>
+                                    <li><strong>Film:</strong> Lead Actor in short film "HOGAR SALADO"</li>
+                                </ul>
+                            </div>
+
+                            <div class="bio-block curious-block">
+                                <h3>SPECIAL SKILLS</h3>
+                                <ul class="bio-list">
+                                    <li><strong>Elite Sports:</strong> Professional Volleyball Player (CV Pòrtol)</li>
+                                    <li><strong>Action/Combat:</strong> Various acrobatics, MMA & Grappling (Basics)
+                                    </li>
+                                    <li><strong>Others:</strong> Surfing, Rock Climbing, DJ</li>
+                                </ul>
+                            </div>
+
+                            <div class="bio-block curious-block">
+                                <h3>TECHNICAL DATA & LOCATION</h3>
+                                <ul class="bio-list">
+                                    <li><strong>Measurements:</strong> Jacket L | Shirt L | Pants EU 42 | Shoes EU 46.5
+                                        / UK 11.5 / US 12</li>
+                                    <li><strong>Location:</strong> Based in Palma de Mallorca & Barcelona (Fully
+                                        available for travel)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bio-image-container">
+                    <img src="images/cv_profile.jpg" alt="Antonio Nicolás Preto Ford CV" class="bio-image">
+                </div>
+            </section>
+
+            <!-- GALERÍA Section -->
+            <section id="galeria" class="content-section gallery-section">
+                <div class="gallery-container">
+                    <div class="gallery-item"><img src="images/gal_final_15.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 15" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_1.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 1" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_2.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 2" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_3.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 3" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_4.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 4" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_5.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 5" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_6.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 6" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_7.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 7" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_8.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 8" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_9.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 9" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_10.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 10" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_11.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 11" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_12.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 12" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_13.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 13" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img src="images/gal_final_14.jpg" loading="lazy"
+                            alt="Antonio Nicolás Preto Ford - Gallery Image 14" class="lightbox-trigger"></div>
+                </div>
+            </section>
+
+            <!-- REEL Section (Triggered by YouTube Icon and 'REEL' menu) -->
+            <section id="reel" class="content-section reel-section">
+                <!-- Using the same split screen structure -->
+                <div class="reel-video-container">
+                    <div class="video-wrapper">
+                        <!-- Converted YouTube share link to an embed iframe -->
+                        <iframe width="100%" height="100%"
+                            src="https://www.youtube.com/embed/4ouMjITPi30?si=sGYQ7_1hqvlcqaz0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="reel-info-container">
+                    <h2>VIDEBOOK</h2>
+                    <p>Antonio Nicolás Preto Ford</p>
+                </div>
+            </section>
+
+            <!-- CONTACTO Section -->
+            <section id="contacto" class="content-section contact-section">
+                <div class="contact-info-container">
+                    <h2>CONTACTO</h2>
+                    <div class="contact-details">
+                        <p><a href="mailto:toni.ford2005@gmail.com" class="contact-link"><i
+                                    class="fa-solid fa-envelope"></i> toni.ford2005@gmail.com</a></p>
+                        <p><a href="https://wa.me/34601713202" target="_blank" rel="noopener noreferrer"
+                                class="contact-link"><i class="fab fa-whatsapp"></i> 601 713 202</a></p>
+                        <p><a href="https://instagram.com/toni.pretoo" target="_blank" rel="noopener noreferrer"
+                                class="contact-link"><i class="fab fa-instagram"></i> @toni.pretoo</a></p>
+                    </div>
+                </div>
+                <!-- We also put an image on the right half, same as inicio -->
+                <div class="contact-image-container">
+                    <img src="images/contacto.jpg" alt="Antonio Nicolás Preto Ford Contact" class="contact-image">
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <button class="lightbox-btn lightbox-prev" id="lightbox-prev">&#10094;</button>
+        <img class="lightbox-content" id="lightbox-img">
+        <button class="lightbox-btn lightbox-next" id="lightbox-next">&#10095;</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

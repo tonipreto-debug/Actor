@@ -226,6 +226,12 @@ body {
     font-size: 28px;
     cursor: pointer;
     color: var(--text-main);
+    animation: menuEntrySpin 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both;
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-btn:active {
+    transform: scale(0.9);
 }
 
 /* General Layout for Content Sections (Bio & Contact) */
@@ -728,6 +734,23 @@ body {
     }
 }
 
+@keyframes menuEntrySpin {
+    0% {
+        transform: rotate(-180deg) scale(0);
+        opacity: 0;
+    }
+
+    60% {
+        transform: rotate(20deg) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(0) scale(1);
+        opacity: 1;
+    }
+}
+
 /* Responsive Design */
 @media screen and (max-width: 900px) {
     .layout-container {
@@ -766,6 +789,10 @@ body {
     }
 
     .hero-image-container {
+        height: 100%;
+    }
+
+    #inicio.content-section {
         height: calc(100vh - 90px);
     }
 
@@ -780,6 +807,8 @@ body {
     .hero-mobile .hero-image {
         width: 100%;
         height: 100%;
+        object-fit: cover;
+        object-position: center 15%;
     }
 
     .contact-section,
@@ -793,10 +822,12 @@ body {
         padding: 4rem 2rem;
     }
 
-    .contact-image-container,
+    .contact-image-container {
+        height: 60vh;
+    }
+
     .bio-image-container {
         height: 60vh;
-        order: -1;
     }
 
     .reel-section {
@@ -804,7 +835,8 @@ body {
     }
 
     .gallery-container {
-        grid-template-columns: 1fr;
-        /* Single column on mobile */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 10px;
     }
 }

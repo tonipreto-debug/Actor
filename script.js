@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    let menuInteracted = false;
+
     const navLinks = document.querySelectorAll('.main-nav a');
     const sections = document.querySelectorAll('.content-section');
 
@@ -6,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault(); // Prevent default anchor scrolling
+            menuInteracted = true;
 
             // Remove active class from all links and sections
             navLinks.forEach(nav => nav.classList.remove('active'));
@@ -47,9 +50,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mobileBtn) {
         mobileBtn.addEventListener('click', () => {
+            menuInteracted = true;
             sidebar.classList.toggle('open');
         });
     }
+
+    // Auto-open mobile menu after 5 seconds on initial load
+    setTimeout(() => {
+        if (!menuInteracted && window.innerWidth <= 900 && sidebar && !sidebar.classList.contains('open')) {
+            sidebar.classList.add('open');
+        }
+    }, 5000);
 
     // Bio Language Toggle Logic
     const langToggle = document.getElementById('bio-lang-toggle');

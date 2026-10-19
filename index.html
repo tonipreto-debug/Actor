@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antonio Nicolás Preto Ford - Actor</title>
-    <link rel="stylesheet" href="styles.css?v=49">
+    <link rel="stylesheet" href="styles.css?v=55">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,6 +50,7 @@
                 <ul>
                     <li><a href="#inicio" class="active">INICIO</a></li>
                     <li><a href="#reel">REEL</a></li>
+                    <li><a href="#proyectos">PROYECTOS</a></li>
                     <li><a href="#cv">CV</a></li>
                     <li><a href="#galeria">GALERÍA</a></li>
                     <li><a href="#contacto">CONTACTO</a></li>
@@ -73,31 +74,102 @@
 
         <!-- Main Content Area -->
         <main class="main-content">
-            <section id="inicio" class="content-section active">
+            <section id="inicio" class="content-section">
                 <div class="hero-image-container hero-desktop">
                     <img src="images/gal_final_12.jpg" alt="Antonio Nicolás Preto Ford Cover" class="hero-image">
+                    <div class="hero-overlay">
+                        <h2 class="hero-name">ANTONIO NICOLÁS<br>PRETO FORD</h2>
+                        <p class="hero-role">Actor · Palma de Mallorca · Barcelona</p>
+                    </div>
                 </div>
                 <div class="hero-image-container hero-mobile">
-                    <img src="images/gal_final_12.jpg" alt="Antonio Nicolás Preto Ford Mobile" class="hero-image">                </div>
+                    <img src="images/gal_final_12.jpg" alt="Antonio Nicolás Preto Ford Mobile" class="hero-image">
+                    <div class="hero-overlay">
+                        <h2 class="hero-name">ANTONIO NICOLÁS<br>PRETO FORD</h2>
+                        <p class="hero-role">Actor</p>
+                    </div>
+                </div>
             </section>
 
             <!-- REEL Section -->
             <section id="reel" class="content-section reel-section">
-                <div class="reel-info-container">
-                    <div class="bio-block">
-                        <h3>VIDEBOOK</h3>
-                        <p>Antonio Nicolás Preto Ford</p>
+                <div class="section-header">
+                    <h2 class="section-title">REEL</h2>
+                </div>
+                <div class="reel-video-container reel-dual-container">
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <!-- HOGAR SALADO -->
+                            <iframe width="100%" height="100%"
+                                src="https://www.youtube.com/embed/Dt2KJqK_CoY?start=19&autoplay=1&mute=1"
+                                title="HOGAR SALADO - Dir. Maria del Carmen Esteve" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-caption">
+                            <h4>HOGAR SALADO</h4>
+                            <p>Dir. Maria del Carmen Esteve</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <!-- ENTIERRAME -->
+                            <iframe width="100%" height="100%"
+                                src="https://www.youtube.com/embed/YZn9JrMY4ZQ?start=86&autoplay=1&mute=1"
+                                title="ENTIERRAME - Dir. Marc Ximelis" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-caption">
+                            <h4>ENTIERRAME</h4>
+                            <p>Dir. Marc Ximelis</p>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="reel-video-container">
-                    <div class="video-wrapper">
-                        <!-- YouTube Embed -->
-                        <iframe width="100%" height="100%"
-                            src="https://www.youtube.com/embed/Dt2KJqK_CoY?start=19&autoplay=1&mute=1"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!-- PROYECTOS Section -->
+            <section id="proyectos" class="content-section projects-section">
+                <div class="projects-inner">
+                    <h2 class="section-title">PROYECTOS</h2>
+                    <div class="projects-grid">
+
+                        <!-- Proyecto 1: HOGAR SALADO -->
+                        <div class="project-card">
+                            <div class="project-img-wrap">
+                                <img src="images/hogar_salado_cover.jpg" alt="Hogar Salado" class="project-img project-img-hogar">
+                                <div class="project-badge">Protagonista</div>
+                            </div>
+                            <div class="project-meta">
+                                <h3>HOGAR SALADO</h3>
+                                <p>Cortometraje · Dir. Maria del Carmen Esteve</p>
+                            </div>
+                        </div>
+
+                        <!-- Proyecto 2: ENTIERRAME -->
+                        <div class="project-card">
+                            <div class="project-img-wrap">
+                                <img src="images/entierrame_cover.jpg" alt="Entiérrame" class="project-img">
+                                <div class="project-badge">Protagonista</div>
+                            </div>
+                            <div class="project-meta">
+                                <h3>ENTIÉRRAME</h3>
+                                <p>Cortometraje · Dir. Marc Ximelis</p>
+                            </div>
+                        </div>
+
+                        <!-- Proyecto 3: DEATH -->
+                        <div class="project-card">
+                            <div class="project-img-wrap placeholder-wrap">
+                                <span class="placeholder-icon">🎬</span>
+                                <div class="project-badge">En Producción</div>
+                            </div>
+                            <div class="project-meta">
+                                <h3>DEATH</h3>
+                                <p>Próximamente · Dir. Jorge Fernández Ibáñez</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -105,6 +177,7 @@
             <!-- CV Section (formerly BIO) -->
             <section id="cv" class="content-section bio-section">
                 <div class="bio-info-container">
+                    <h2 class="section-title">CURRÍCULUM</h2>
                     <!-- Language Toggle -->
                     <div class="language-toggle">
                         <span class="lang-option active" data-lang="es">ES</span>
@@ -141,8 +214,8 @@
                                 <ul class="bio-list">
                                     <li><strong>Grado:</strong> Interpretación (en curso) – ESADIB (Escola Superior
                                         d'Art Dramàtic de les Illes Balears)</li>
-                                    <li><strong>Cine:</strong> Actor Protagonista (Main Role) en cortometraje "HOGAR
-                                        SALADO"</li>
+                                    <li><strong>Cine:</strong> Actor Protagonista en cortometraje "ENTIÉRRAME" (Dir. Marc Ximelis)</li>
+                                    <li><strong>Cine:</strong> Actor Protagonista en cortometraje "HOGAR SALADO" (Dir. Maria del Carmen Esteve)</li>
                                 </ul>
                             </div>
 
@@ -193,7 +266,8 @@
                                 <ul class="bio-list">
                                     <li><strong>BA:</strong> Dramatic Arts (in progress) – ESADIB (Higher School of
                                         Dramatic Arts of the Balearic Islands)</li>
-                                    <li><strong>Film:</strong> Lead Actor in short film "HOGAR SALADO"</li>
+                                    <li><strong>Film:</strong> Lead Actor in short film "ENTIÉRRAME" (Dir. Marc Ximelis)</li>
+                                    <li><strong>Film:</strong> Lead Actor in short film "HOGAR SALADO" (Dir. Maria del Carmen Esteve)</li>
                                 </ul>
                             </div>
 
@@ -227,6 +301,9 @@
 
             <!-- GALERÍA Section -->
             <section id="galeria" class="content-section gallery-section">
+                <div class="section-header">
+                    <h2 class="section-title">GALERÍA</h2>
+                </div>
                 <div class="gallery-container">
                     <div class="gallery-item"><img src="images/gal_final_15.jpg" loading="lazy"
                             alt="Antonio Nicolás Preto Ford - Gallery Image 15" class="lightbox-trigger"></div>
@@ -270,34 +347,15 @@
                             alt="Antonio Nicolás Preto Ford - Gallery Image 20" class="lightbox-trigger"></div>
                     <div class="gallery-item"><img src="images/gal_final_21.jpg" loading="lazy"
                             alt="Antonio Nicolás Preto Ford - Gallery Image 21" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="images/gal_final_22.jpg" loading="lazy"
-                            alt="Antonio Nicolás Preto Ford - Gallery Image 22" class="lightbox-trigger"></div>
                 </div>
             </section>
 
-            <!-- REEL Section (Triggered by YouTube Icon and 'REEL' menu) -->
-            <section id="reel" class="content-section reel-section">
-                <!-- Using the same split screen structure -->
-                <div class="reel-video-container">
-                    <div class="video-wrapper">
-                        <!-- Converted YouTube share link to an embed iframe -->
-                        <iframe width="100%" height="100%"
-                            src="https://www.youtube.com/embed/Dt2KJqK_CoY?start=19&autoplay=1&mute=1"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="reel-info-container">
-                    <h2>VIDEBOOK</h2>
-                    <p>Antonio Nicolás Preto Ford</p>
-                </div>
-            </section>
+
 
             <!-- CONTACTO Section -->
             <section id="contacto" class="content-section contact-section">
                 <div class="contact-info-container">
-                    <h2>CONTACTO</h2>
+                    <h2 class="section-title">CONTACTO</h2>
                     <div class="contact-details">
                         <p><a href="mailto:toni.ford2005@gmail.com" class="contact-link"><i
                                     class="fa-solid fa-envelope"></i> toni.ford2005@gmail.com</a></p>
@@ -323,7 +381,7 @@
         <button class="lightbox-btn lightbox-next" id="lightbox-next">&#10095;</button>
     </div>
 
-    <script src="script.js?v=44"></script>
+    <script src="script.js?v=45"></script>
 </body>
 
 </html>

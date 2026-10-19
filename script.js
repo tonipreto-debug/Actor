@@ -1,30 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let menuInteracted = false;
 
     const navLinks = document.querySelectorAll('.main-nav a');
     const sections = document.querySelectorAll('.content-section');
+    const mainContent = document.querySelector('.main-content');
 
-    // Handle navigation clicks
+    // ─── SMOOTH SCROLL NAVIGATION ────────────────────────────────────────────
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevent default anchor scrolling
-            menuInteracted = true;
-
-            // Remove active class from all links and sections
-            navLinks.forEach(nav => nav.classList.remove('active'));
-            sections.forEach(sec => sec.classList.remove('active'));
-
-            // Add active class to clicked link
-            this.classList.add('active');
-
-            // Find target section and activate it
+            e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
             if (targetSection) {
-                targetSection.classList.add('active');
+                mainContent.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
             }
-
-            // If on mobile, close sidebar after clicking
+            // Close mobile sidebar after clicking
             const sidebar = document.getElementById('sidebar');
             if (window.innerWidth <= 900 && sidebar.classList.contains('open')) {
                 sidebar.classList.remove('open');
@@ -32,19 +24,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Make logo links trigger the INICIO navigation
+    // ─── SCROLL SPY: update active nav link as user scrolls ──────────────────
+    mainContent.addEventListener('scroll', () => {
+        const scrollTop = mainContent.scrollTop;
+        const viewportHeight = mainContent.clientHeight;
+        let currentId = null;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (scrollTop >= sectionTop - viewportHeight / 3) {
+                currentId = section.id;
+            }
+        });
+
+        if (currentId) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+
+    // ─── LOGO LINKS → scroll to top ──────────────────────────────────────────
     const logoLinks = document.querySelectorAll('.logo-link');
     logoLinks.forEach(logo => {
         logo.addEventListener('click', (e) => {
             e.preventDefault();
-            const inicioLink = document.querySelector('.main-nav a[href="#inicio"]');
-            if (inicioLink) {
-                inicioLink.click();
-            }
+            mainContent.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
 
-    // Mobile Menu Toggle
+    // ─── MOBILE MENU TOGGLE ──────────────────────────────────────────────────
+    let menuInteracted = false;
     const mobileBtn = document.getElementById('mobile-menu-toggle');
     const sidebar = document.getElementById('sidebar');
 
@@ -62,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 5000);
 
-    // Bio Language Toggle Logic
+    // ─── BIO LANGUAGE TOGGLE ─────────────────────────────────────────────────
     const langToggle = document.getElementById('bio-lang-toggle');
     const langOptions = document.querySelectorAll('.lang-option');
     const bioEs = document.getElementById('bio-es');
@@ -71,27 +84,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (langToggle && bioEs && bioEn) {
         langToggle.addEventListener('click', () => {
             const isEnglish = langToggle.classList.contains('en-active');
-
             if (isEnglish) {
-                // Switch to Spanish
                 langToggle.classList.remove('en-active');
                 bioEn.classList.remove('active');
                 bioEs.classList.add('active');
-
                 langOptions[0].classList.add('active');
                 langOptions[1].classList.remove('active');
             } else {
-                // Switch to English
                 langToggle.classList.add('en-active');
                 bioEs.classList.remove('active');
                 bioEn.classList.add('active');
-
                 langOptions[0].classList.remove('active');
                 langOptions[1].classList.add('active');
             }
         });
 
-        // Allow clicking the text labels "ES" / "EN" to toggle
         langOptions.forEach(option => {
             option.addEventListener('click', function () {
                 const lang = this.getAttribute('data-lang');
@@ -104,32 +111,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Gallery Scroll Animation (Intersection Observer)
+    // ─── GALLERY SCROLL ANIMATION (IntersectionObserver) ─────────────────────
     const galleryItems = document.querySelectorAll('.gallery-item');
     if (galleryItems.length > 0) {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15 // Trigger when 15% of the image is visible
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        const galleryObserver = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Add visible class to trigger CSS animation
                     entry.target.classList.add('visible');
-                    // Stop observing once it has animated in
-                    observer.unobserve(entry.target);
+                    obs.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
-
-        galleryItems.forEach(item => {
-            observer.observe(item);
+        }, {
+            root: mainContent,
+            rootMargin: '0px',
+            threshold: 0.1
         });
+
+        galleryItems.forEach(item => galleryObserver.observe(item));
     }
 
-    // Lightbox Logic
+    // ─── LIGHTBOX ────────────────────────────────────────────────────────────
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.getElementById('lightbox-close');
@@ -144,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentImageIndex = index;
         lightboxImg.src = imagesArray[currentImageIndex];
         lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
@@ -164,23 +165,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (lightbox) {
         triggers.forEach((trigger, index) => {
-            trigger.addEventListener('click', () => {
-                openLightbox(index);
-            });
+            trigger.addEventListener('click', () => openLightbox(index));
         });
 
         closeBtn.addEventListener('click', closeLightbox);
         nextBtn.addEventListener('click', showNext);
         prevBtn.addEventListener('click', showPrev);
 
-        // Close when clicking outside the image
         lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
+            if (e.target === lightbox) closeLightbox();
         });
 
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('active')) return;
             if (e.key === 'Escape') closeLightbox();
